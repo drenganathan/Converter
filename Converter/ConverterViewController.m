@@ -10,6 +10,8 @@
 
 @interface ConverterViewController ()
 
+@property (nonatomic, weak) UITextField *userInputField;
+
 - (float) fahrenheit2Celsius: (float) fahreneit;
 - (float) celsius2Fahrenheit: (float) celsius;
 
@@ -17,7 +19,7 @@
 
 @implementation ConverterViewController
 
-UITextField *userInputField = nil;
+@synthesize userInputField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +53,7 @@ UITextField *userInputField = nil;
 
 #pragma mark - UITextField delegate
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     userInputField = textField;
     return YES;
 }
